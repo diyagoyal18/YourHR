@@ -5,14 +5,16 @@ const multer = require('multer');
 const path = require('path');
 const ClientModel= require('./models/Client')
 const UserModel = require('./models/User')
-
+const Grid = require('gridfs-stream');
+const GridFsStorage = require('multer-gridfs-storage').GridFsStorage;
+const resume= require('./resume')
 const app= express()
 app.use(express.json())
 app.use(cors())
+const mongoURI= "mongodb://127.0.0.1:27017/HR"
+mongoose.connect(mongoURI);
 
-mongoose.connect("mongodb://127.0.0.1:27017/HR");
-
-
+app.use('/resume',resume)
 
 
 
@@ -38,20 +40,7 @@ app.post('/register',(req,res)=>{
     .catch(err => res.json(err))
 })
 
-
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, 'assets')); // Store files in the 'assets' folder
-    },
-    filename: (req, file, cb) => {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-        cb(null, `${file.fieldname}-${uniqueSuffix}${path.extname(file.originalname)}`);
-    }
-});
-const upload = multer({ storage: storage });
-
-
-app.post('/user',upload.single('resume'),(req,res)=>{
+app.post('/user',(req,res)=>{
     UserModel.create(req.body).then(users=>res.json(users)).catch(err=>res.json(err))
 })
 app.post('')

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState , createRef} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 const Home = () => {
@@ -14,10 +14,16 @@ const Home = () => {
   const [pin, setPin] = useState()
   const [resume, setResume] = useState()
   const navigate = useNavigate()
-
-  const handleSubmit= (e)=>{
+  const fileInput = createRef();
+  const handleSubmit= async (e)=>{
     e.preventDefault()
-    axios.post('http://localhost:3001/user', {firstName, lastName, contact, college, cgpa, year, skills, city, state, pin, resume})
+    const formData= new FormData();
+    formData.set("resume", fileInput.current.files[0]);
+    const response = await fetch('/resume',{
+      method:"POST",
+      body:formData
+    })
+    axios.post('http://localhost:3001/user', {firstName, lastName, contact, college, cgpa, year, skills, city, state, pin,resume})
     .then(result=>{console.log(result)
     navigate('/dashboard')
     })
@@ -118,7 +124,7 @@ const Home = () => {
                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-skills">
                   Resume
                 </label>
-                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-resume" type="file" onChange={(e)=>setResume(e.target.value)}/>
+                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-resume" type="file" onChange={(e)=>setResume(e.target.value)} ref={fileInput}/>
                 <button type="submit" className="mt-4 px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-500">Submit</button>
               </div>
             </div>
