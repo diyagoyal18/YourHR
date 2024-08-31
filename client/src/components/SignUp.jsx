@@ -11,7 +11,7 @@ const SignUp = () => {
       e.preventDefault()
       axios.post('http://localhost:3001/register', {name, email, password})
       .then(result=>{console.log(result)
-      navigate('/home')
+      navigate('/login')
       })
       .catch(err=> console.log(err))
     }
