@@ -8,14 +8,17 @@ const UserModel = require('./models/User')
 const Grid = require('gridfs-stream');
 const GridFsStorage = require('multer-gridfs-storage').GridFsStorage;
 const resume= require('./resume')
+require('dotenv').config();
 const app= express()
 app.use(express.json())
 app.use(cors())
+
+
 const mongoURI= "mongodb://127.0.0.1:27017/HR"
 mongoose.connect(mongoURI);
-
 app.use('/resume',resume)
 
+const port = process.env.PORT || 3001;
 
 
 app.post("/login" ,(req,res)=>{
@@ -48,6 +51,6 @@ app.post('')
 
 
 
-app.listen(3001, ()=>{
+app.listen(port, ()=>{
     console.log("server is running");
 })
