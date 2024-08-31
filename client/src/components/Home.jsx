@@ -125,7 +125,7 @@ const Home = () => {
                   Resume
                 </label>
                 <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-resume" type="file" onChange={(e)=>setResume(e.target.value)} ref={fileInput}/>
-                <button type="submit" className="mt-4 px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-500">Submit</button>
+                <button type="submit" className="mt-4 px-4 py-2 bg-[#15455d] text-white rounded-md hover:bg-[#6ab6dc]">Submit</button>
               </div>
             </div>
           </form>

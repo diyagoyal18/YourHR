@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 const SignUp = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -32,7 +32,7 @@ const SignUp = () => {
             onClick={() => {
               setDarkMode(!darkMode);
             }}
-            className="w-11 h-6 bg-gray-200 rounded-full peer  peer-focus:ring-green-300  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"
+            className="w-11 h-6 bg-gray-200 rounded-full peer  peer-focus:ring-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"
           ></div>
         </label>
 
@@ -50,7 +50,7 @@ const SignUp = () => {
           darkMode ? "text-white" : "text-black"
         }`}
       >
-        Create Account
+        CREATE ACCOUNT
       </h1>
       <div className=" mt-8 basis-3/4 w-[600px]">
         <div className="mx-auto max-w-xs sm:max-w-md md:max-w-lg flex flex-col gap-4 basis-3/4">
@@ -86,7 +86,7 @@ const SignUp = () => {
             placeholder="Password"
             onChange={(e)=>setPassword(e.target.value)}
           />
-          <button className="mt-5 tracking-wide font-semibold bg-[#E9522C] text-gray-100 w-full py-4 rounded-lg hover:bg-[#E9522C]/90 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none" on>
+          <button className="mt-5 tracking-wide font-semibold bg-[#6ab6dc] text-gray-100 w-full py-4 rounded-lg hover:bg-[#6ab6dc]/90 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none" on>
             <svg
               className="w-6 h-6 -ml-2"
               fill="none"
@@ -104,7 +104,7 @@ const SignUp = () => {
           <p className="mt-6 text-xs text-gray-600 text-center">
             Already have an account?{" "}
             
-            <Link to="/login" className='text-[#E9522C] font-semibold'>Login</Link>
+            <Link to="/login" className='text-[#6ab6dc] font-semibold'>Login</Link>
           </p>
         </div>
       </div>

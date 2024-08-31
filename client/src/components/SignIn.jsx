@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 const SignIn = () => {
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useState(true);
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -34,7 +34,7 @@ const SignIn = () => {
               onClick={() => {
                 setDarkMode(!darkMode);
               }}
-              className="w-11 h-6 bg-gray-200 rounded-full peer  peer-focus:ring-green-300  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"
+              className="w-11 h-6 bg-gray-200 rounded-full peer  peer-focus:ring-blue-600  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"
             ></div>
           </label>
         </div>
@@ -49,7 +49,7 @@ const SignIn = () => {
             darkMode ? "text-white" : "text-black"
           }`}
         >
-          Login
+          LOGIN
         </h1>
         <form >
         <div className=" mt-8 w-[600px]">
@@ -75,7 +75,7 @@ const SignIn = () => {
               placeholder="Password"
               onChange={(e)=>setPassword(e.target.value)} 
             />
-            <button className="mt-5 tracking-wide font-semibold bg-[#E9522C] text-gray-100 w-full py-4 rounded-lg hover:bg-[#E9522C]/90 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none" onClick={handleSubmit}>
+            <button className="mt-5 tracking-wide font-semibold bg-[#6ab6dc] text-gray-100 w-full py-4 rounded-lg hover:bg-[#6ab6dc]/90 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none" onClick={handleSubmit}>
               <svg
                 className="w-6 h-6 -ml-2"
                 fill="none"
@@ -93,7 +93,7 @@ const SignIn = () => {
             <p className="mt-6 text-xs text-gray-600 text-center">
               Don't have an account?{" "}
               
-              <Link to="/" className='text-[#E9522C] font-semibold'>Register</Link>
+              <Link to="/" className='text-[#6ab6dc] font-semibold'>Register</Link>
               </p>
           </div>
         </div>
